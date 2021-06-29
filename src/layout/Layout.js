@@ -13,6 +13,9 @@ function Layout() {
       <Menu />
       <div className="container">
         <Switch>
+          <Route path="/observations/edit/:observation_id">
+            PENDING {/* <ObservationEdit/> */}
+          </Route>
           <Route path="/observations/new">
             <ObservationCreate />
           </Route>

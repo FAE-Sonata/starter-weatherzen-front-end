@@ -15,13 +15,16 @@ function Home() {
   }, []);
 
   const tableRows = observations.map((observation) => (
+    // <div>
     <tr key={observation.observation_id}>
       <th scope="row">{observation.observation_id}</th>
+      <td><a href={`/observations/edit/${observation['observation_id']}`}>edit this</a></td>
       <td>{observation.latitude}</td>
       <td>{observation.longitude}</td>
       <td>{observation.sky_condition}</td>
       <td>{observation.created_at}</td>
     </tr>
+    // </div>
   ));
 
   return (
@@ -32,6 +35,7 @@ function Home() {
         <thead>
         <tr>
           <th scope="col">#</th>
+          <th scope="col">[EDIT]</th>
           <th scope="col">Latitude</th>
           <th scope="col">Longitude</th>
           <th scope="col">Sky Condition</th>
@@ -39,7 +43,7 @@ function Home() {
         </tr>
         </thead>
         <tbody>
-        {tableRows}
+          {tableRows}
         </tbody>
       </table>
     </main>
