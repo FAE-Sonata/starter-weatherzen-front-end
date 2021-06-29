@@ -57,7 +57,7 @@ export async function createObservation(observation, signal) {
 }
 
 export async function updateObservation(observation, signal) {
-  const url = `${API_BASE_URL}/observations`;
+  const url = `${API_BASE_URL}/observations/${observation['observation_id']}`;
   const options = {
     method: "PUT",
     headers,
@@ -67,9 +67,20 @@ export async function updateObservation(observation, signal) {
    return await fetchJson(url, options);
 }
 
+export async function readObservation(observation_id, signal) {
+  const url = `${API_BASE_URL}/observations/${observation_id}`;
+  const options = {
+    method: "GET",
+    headers,
+    signal,
+  };
+  return await fetchJson(url, options);
+}
+
 export async function listObservations(signal) {
   const url = `${API_BASE_URL}/observations`;
   const options = {
+    method: "GET",
     headers,
     signal,
   };
